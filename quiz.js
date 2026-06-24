@@ -17,7 +17,7 @@ let questions = [];
 async function loadQuestionsFromBackend() {
 
     const response = await fetch(
-        `http://localhost:5000/questions?category=${category}&level=${selectedLevel}`
+        `https://aptimaster-full-e9fy.vercel.app/questions?category=${category}&level=${selectedLevel}`
     );
 
     questions = await response.json();
@@ -270,7 +270,7 @@ document.getElementById("confirmSubmit").addEventListener("click", async () => {
 
     console.log("Before submit");
 
-    const response = await fetch("http://localhost:5000/submit", {
+    const response = await fetch("https://aptimaster-full-e9fy.vercel.app/submit", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

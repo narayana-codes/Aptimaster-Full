@@ -12,7 +12,7 @@ loginBtn.addEventListener("click", async () => {
 
     try {
 
-        const response = await fetch("http://localhost:5000/login", {
+const response = await fetch("https://aptimaster-full-e9fy.vercel.app/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
