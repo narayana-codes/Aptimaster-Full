@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz Application</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#f5f9ff;
+    height:100vh;
+    overflow-x:hidden;
+}
+
+nav{
+    height:60px;
+    padding:0 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:white;
+    box-shadow:0 2px 10px rgba(0,0,0,0.08);
+}
+
+.logo{
+    font-size:30px;
+    font-weight:bold;
+    color:#2563eb;
+}
+
+.nav-buttons{
+    display:flex;
+    gap:15px;
+}
+
+.login-btn{
+    padding:12px 25px;
+    border:2px solid #2563eb;
+    background:white;
+    color:#2563eb;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.register-btn{
+    padding:12px 25px;
+    border:none;
+    background:#2563eb;
+    color:white;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.hero{
+    height:calc(100vh - 80px);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    max-width:1400px;
+    width:100%;
+    margin:auto;
+    padding:0 60px;
+    gap:60px;
+}
+
+.left{
+    flex:1.2;
+}
+
+.left h1{
+    font-size:50px;
+    line-height:1.2;
+    color:#0f172a;
+    margin-bottom:20px;
+}
+
+.left h1 span{
+    color:#2563eb;
+}
+
+.left p{
+    font-size:18px;
+    color:#475569;
+    line-height:1.7;
+    margin-bottom:20px;
+}
+
+.quote{
+    background:white;
+    padding:15px;
+    border-left:5px solid #2563eb;
+    border-radius:10px;
+    margin-bottom:25px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.08);
+}
+
+.start-btn{
+    display:inline-block;
+    padding:15px 30px;
+    background:#2563eb;
+    color:white;
+    text-decoration:none;
+    border-radius:10px;
+    font-weight:bold;
+}
+
+.right{
+    flex:1;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.right img{
+    width:100%;
+    max-width:500px;
+}
+
+@media (max-width:768px){
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    height:70px;
+    padding:0 15px;
+}
+
+.logo{
+    font-size:22px;
+}
+
+.nav-buttons{
+    display:flex;
+    flex-direction:row;
+    gap:8px;
+    width:auto;
+}
+
+.login-btn,
+.register-btn{
+    width:auto;
+    padding:8px 14px;
+    font-size:14px;
+}
+
+
+
+.left,
+.right{
+    width:100%;
+}
+
+.left h1{
+    font-size:28px;
+}
+
+.left p{
+    font-size:15px;
+     margin-bottom:12px;
+}
+
+.quote{
+      font-size:15px;
+      padding:10px;
+      margin-bottom:15px;
+}
+
+.right img{
+    width:220px;
+    height:220px;
+    object-fit:contain;
+}
+
+.start-btn{
+    width:100%;
+    display:inline-block;
+}
+.hero{
+    height:auto;
+    flex-direction:column-reverse;
+    text-align:center;
+    padding:30px 20px;
+}
+footer{
+    width:100%;
+    text-align:center;
+    padding:12px;
+    background:#ffffff;
+    color:#666;
+    font-size:14px;
+    border-top:1px solid #ddd;
+}
+}
+</style>
+</head>
+
+<body>
+   
+
+<nav>
+  <div class="logo-section">
+    <div class="logo">🧠 AptiMaster</div>
+    <div class="developer">
+        Developed by Pasumarthi Lakshminarayana
+    </div>
+</div>
+
+    <div class="nav-buttons">
+        <button class="login-btn"
+onclick="window.location.href='login.html'">
+👤 Login
+</button>
+        <button class="register-btn"
+onclick="window.location.href='register.html'">
+➕ Register
+</button>
+    </div>
+</nav>
+
+<section class="hero">
+
+    <div class="left">
+
+        <h1>
+            The More You <span>Learn</span><br>
+            The More You <span>Earn</span>
+        </h1>
+
+        <p>
+            "Master aptitude and reasoning today to unlock greater opportunities tomorrow."
+        </p>
+
+        <div class="quote">
+            “Success is where preparation and opportunity meet.”
+        </div>
+
+       <a href="login.html" class="start-btn"> Get Started</a>
+
+    </div>
+
+    <div class="right">
+        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Quiz Image">
+    </div>
+
+</section>
+
+</body>
+</html>

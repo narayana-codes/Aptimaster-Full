@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Select Test Level</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f5f9ff;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.container{
+    width:90%;
+    max-width:900px;
+}
+
+.heading{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.heading h1{
+    color:#0d47a1;
+    font-size:40px;
+}
+
+.heading p{
+    color:#555;
+    margin-top:10px;
+}
+
+.levels{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.level-card{
+    background:white;
+    border-radius:15px;
+    padding:30px;
+    text-align:center;
+    box-shadow:0 4px 15px rgba(0,0,0,0.1);
+    transition:0.3s;
+    cursor:pointer;
+    border:3px solid transparent;
+}
+
+.level-card:hover{
+    transform:translateY(-8px);
+    border-color:#1976d2;
+}
+
+.level-card h2{
+    color:#1565c0;
+    margin-bottom:15px;
+}
+
+.level-card p{
+    color:#666;
+    margin-bottom:20px;
+}
+
+.level-btn{
+    background:#1565c0;
+    color:white;
+    border:none;
+    padding:12px 25px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+.level-btn:hover{
+    background:#0d47a1;
+}
+@media (max-width:768px){
+
+body{
+    min-height:100vh;
+    height:100vh;
+    overflow:hidden;
+    justify-content:center;
+    align-items:center;
+    padding:15px;
+}
+
+.container{
+    width:100%;
+}
+
+.heading{
+    margin-bottom:20px;
+}
+
+.heading h1{
+    font-size:30px;
+}
+
+.heading p{
+    font-size:15px;
+}
+
+.levels{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.level-card{
+    width:100%;
+    max-width:330px;
+    margin:auto;
+    padding:15px;
+}
+
+.level-card p{
+    margin-bottom:10px;
+}
+
+.level-btn{
+    width:100%;
+    padding:10px;
+}
+
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="heading">
+        <h1>📝 Select Test Level</h1>
+        <p>Choose your difficulty level and start the test</p>
+    </div>
+
+    <div class="levels">
+
+        <div class="level-card">
+    <h2>🟢 Easy</h2>
+    <p>Basic questions for beginners.</p>
+    <button class="level-btn"
+    onclick="window.location.href='instructions-aptitude.html?level=easy'">
+    Start Easy Test
+    </button>
+</div>
+
+<div class="level-card">
+    <h2>🟡 Medium</h2>
+    <p>Moderate level questions.</p>
+    <button class="level-btn"
+    onclick="window.location.href='instructions-aptitude.html?level=medium'">
+    Start Medium Test
+    </button>
+</div>
+
+<div class="level-card">
+    <h2>🔴 Hard</h2>
+    <p>Advanced questions for experts.</p>
+    <button class="level-btn"
+    onclick="window.location.href='instructions-aptitude.html?level=hard'">
+    Start Hard Test
+    </button>
+</div>
+    </div>
+
+</div>
+
+</body>
+</html>

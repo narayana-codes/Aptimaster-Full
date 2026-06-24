@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aptitude Mock Test Instructions</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#f5f9ff;
+    padding:30px;
+}
+
+.container{
+    max-width:1100px;
+    margin:auto;
+}
+
+.header{
+    background:#2563eb;
+    color:white;
+    padding:20px 30px;
+    border-radius:12px;
+    margin-bottom:25px;
+}
+
+.header h1{
+    font-size:32px;
+}
+
+.content{
+    display:flex;
+    gap:25px;
+}
+
+.instructions{
+    flex:3;
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+}
+
+.instructions h2{
+    color:#2563eb;
+    margin-bottom:20px;
+}
+
+.test-info{
+    width:100%;
+    border-collapse:collapse;
+    margin:20px 0;
+}
+
+.test-info th{
+    background:#2563eb;
+    color:white;
+    padding:12px;
+}
+
+.test-info td{
+    padding:12px;
+    border:1px solid #ddd;
+    text-align:center;
+}
+
+.instructions ul{
+    margin-top:20px;
+    padding-left:25px;
+}
+
+.instructions li{
+    margin-bottom:12px;
+    line-height:1.6;
+    color:#334155;
+}
+
+.profile{
+    flex:1;
+    background:white;
+    border-radius:15px;
+    text-align:center;
+    padding:25px;
+    height:250px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+}
+
+.avatar{
+    width:90px;
+    height:90px;
+    background:#2563eb;
+    color:white;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:40px;
+    margin:auto;
+    margin-bottom:15px;
+}
+
+.buttons{
+    margin-top:30px;
+    display:flex;
+    justify-content:center;
+    gap:20px;
+}
+
+.back-btn{
+    padding:12px 35px;
+    border:none;
+    background:#cbd5e1;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.start-btn{
+    padding:12px 35px;
+    border:none;
+    background:#2563eb;
+    color:white;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.start-btn:hover{
+    background:#1d4ed8;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>📘 Aptitude Mock Test</h1>
+    </div>
+
+    <div class="content">
+
+        <div class="instructions">
+
+            <h2>General Instructions</h2>
+
+            <p><b>Please read all instructions carefully before starting the test.</b></p>
+
+            <table class="test-info">
+                <tr>
+                    <th>Category</th>
+                    <th>Questions</th>
+                    <th>Marks</th>
+                    <th>Duration</th>
+                </tr>
+
+                <tr>
+                    <td>Aptitude</td>
+                    <td>25</td>
+                    <td>25</td>
+                    <td>10 Minutes</td>
+                </tr>
+            </table>
+
+            <ul>
+                <li>The test contains 25 multiple choice questions.</li>
+                <li>Each question has 4 options and only one answer is correct.</li>
+                <li>You have to complete the test within 30 minutes.</li>
+                <li>Each correct answer carries 1 mark.</li>
+                <li>No negative marking in this test.</li>
+                <li>You can navigate between questions using Next and Previous buttons.</li>
+                <li>Click Submit Test after completing all questions.</li>
+                <li>Once submitted, answers cannot be modified.</li>
+                <li>Your final score will be displayed immediately after submission.</li>
+            </ul>
+
+        </div>
+
+        
+
+    </div>
+
+    <div class="buttons">
+
+        <button class="back-btn"
+        onclick="history.back()">
+        Back
+        </button>
+
+        <button class="start-btn"
+        onclick="window.location.href='quiz.html'">
+        Start Test
+        </button>
+
+    </div>
+
+</div>
+<script>
+const params = new URLSearchParams(window.location.search);
+const level = params.get("level");
+
+localStorage.setItem("quizLevel", level);
+
+console.log(level);
+</script>
+</body>
+</html>
+
+</body>
+</html>

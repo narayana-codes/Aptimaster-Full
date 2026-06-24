@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aptimaster Portal</title>
+    <link rel="stylesheet" href="quiz.css">
+</head>
+
+<body>
+
+   <h1>AptiMaster Mock Test</h1>
+
+    <div class="container">
+
+        <!-- LEFT SECTION -->
+        <div class="left-panel">
+
+            <!-- TOP BAR -->
+            <div class="top-bar">
+                <div class="timer">
+                    ⏰ Time Left: <span id="time">15:00</span>
+                </div>
+
+                <button class="submit-btn" id="submitBtn">
+                    Submit Test
+                </button>
+            </div>
+
+            <!-- SUBJECT -->
+            <div class="subject-bar">
+                <select>
+                    
+                    <option>Quantitative Aptitude</option>
+                   
+                    <option>Logical Reasoning</option>
+                </select>
+            </div>
+
+            <!-- QUESTION BOX -->
+            <div class="question-box">
+
+                <div class="question-header">
+                    <h2>
+                        Question
+                        <span id="qno">1</span>/25
+                    </h2>
+                </div>
+
+                <p id="question-text">
+                    Loading Question...
+                </p>
+
+                <div class="options">
+
+                    <label class="option">
+                        <input type="radio" name="answer">
+                        <span id="opt1">Option A</span>
+                    </label>
+
+                    <label class="option">
+                        <input type="radio" name="answer">
+                        <span id="opt2">Option B</span>
+                    </label>
+
+                    <label class="option">
+                        <input type="radio" name="answer">
+                        <span id="opt3">Option C</span>
+                    </label>
+
+                    <label class="option">
+                        <input type="radio" name="answer">
+                        <span id="opt4">Option D</span>
+                    </label>
+
+                </div>
+
+            </div>
+
+            <!-- BOTTOM BUTTONS -->
+            <div class="bottom-buttons">
+
+                <button id="prev-btn">
+                    ⬅ Previous
+                </button>
+
+                <button id="review-btn">
+                    Mark Review
+                </button>
+
+                <button id="clear-btn">
+                    Clear Response
+                </button>
+
+                <button id="next-btn">
+                    Next ➡
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- RIGHT PANEL -->
+        <div class="right-panel">
+
+            <!-- PROFILE -->
+            <div class="profile-box">
+
+                <div class="avatar" id="avatar">
+                
+                    P
+                </div>
+
+                <h3>Candidate</h3>
+
+            </div>
+
+            <!-- LEGEND -->
+            <div class="legend">
+
+                <div class="legend-item">
+                    <div class="box current"></div>
+                    Current
+                </div>
+
+                <div class="legend-item">
+                    <div class="box answered"></div>
+                    Answered
+                </div>
+
+                <div class="legend-item">
+                    <div class="box review"></div>
+                    Review
+                </div>
+
+                <div class="legend-item">
+                    <div class="box notvisited"></div>
+                    Not Visited
+                </div>
+
+            </div>
+
+            <!-- QUESTION PALETTE -->
+            <div class="question-palette" id="palette">
+
+                <button class="q-btn active">1</button>
+                <button class="q-btn">2</button>
+                <button class="q-btn">3</button>
+                <button class="q-btn">4</button>
+                <button class="q-btn">5</button>
+
+                <button class="q-btn">6</button>
+                <button class="q-btn">7</button>
+                <button class="q-btn">8</button>
+                <button class="q-btn">9</button>
+                <button class="q-btn">10</button>
+
+                <button class="q-btn">11</button>
+                <button class="q-btn">12</button>
+                <button class="q-btn">13</button>
+                <button class="q-btn">14</button>
+                <button class="q-btn">15</button>
+
+                <button class="q-btn">16</button>
+                <button class="q-btn">17</button>
+                <button class="q-btn">18</button>
+                <button class="q-btn">19</button>
+                <button class="q-btn">20</button>
+
+                <button class="q-btn">21</button>
+                <button class="q-btn">22</button>
+                <button class="q-btn">23</button>
+                <button class="q-btn">24</button>
+                <button class="q-btn">25</button>
+
+            </div>
+
+        </div>
+
+    </div>
+    <div id="submitModal" class="modal">
+
+    <div class="modal-content">
+
+        <h2>⚠️ Submit Test</h2>
+
+        <p>Are you sure you want to submit your quiz?</p>
+
+        <div class="modal-buttons">
+
+            <button id="cancelSubmit">Cancel</button>
+
+            <button id="confirmSubmit">Submit</button>
+
+        </div>
+
+    </div>
+
+</div>
+
+    
+    <script src="quiz.js"></script>
+
+</body>
+</html>

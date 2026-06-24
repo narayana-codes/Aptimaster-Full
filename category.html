@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Select Category</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#f5f9ff;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.container{
+    text-align:center;
+}
+
+.container h1{
+    color:#2563eb;
+    margin-bottom:15px;
+    font-size:42px;
+}
+
+.container p{
+    color:#64748b;
+    margin-bottom:40px;
+    font-size:18px;
+}
+
+.categories{
+    display:flex;
+    gap:30px;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+.card{
+    width:280px;
+    height:220px;
+    background:white;
+    border-radius:20px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.08);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card h2{
+    color:#2563eb;
+    margin-top:15px;
+}
+
+.icon{
+    font-size:70px;
+}
+
+@media (max-width:768px){
+
+body{
+    height:auto;
+    min-height:100vh;
+    padding:20px;
+}
+
+.container h1{
+    font-size:32px;
+}
+
+.container p{
+    font-size:16px;
+    margin-bottom:25px;
+}
+
+.categories{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:15px;
+    flex-wrap:nowrap;
+}
+
+.card{
+    width:160px;
+    height:170px;
+}
+
+.icon{
+    font-size:45px;
+}
+
+.card h2{
+    font-size:20px;
+}
+#welcome{
+    color:#2563eb;
+    margin-bottom:15px;
+    font-size:28px;
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+     <h2 id="welcome"></h2>
+    <h1>Select Category</h1>
+
+    <p>Choose a category to start your quiz journey.</p>
+
+    <div class="categories">
+
+        <div class="card"
+onclick="localStorage.setItem('quizCategory','aptitude');
+window.location.href='levels-aptitude.html'">
+            <div class="icon">🧠</div>
+            <h2>Aptitude</h2>
+        </div>
+
+        
+<div class="card"
+onclick="
+localStorage.setItem('quizCategory','reasoning');
+window.location.href='levels-reasoning.html';
+">
+    <div class="icon">📚</div>
+    <h2>Reasoning</h2>
+</div>
+    </div>
+
+</div>
+<script>
+const user = JSON.parse(localStorage.getItem("user"));
+
+if(user){
+    document.getElementById("welcome").innerText =
+    "Welcome, " + user.name ;
+}
+</script>
+
+</body>
+</html>

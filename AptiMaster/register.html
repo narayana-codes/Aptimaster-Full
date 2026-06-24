@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AptiMaster Register</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#ffffff,#dbeafe);
+}
+
+.container{
+    width:850px;
+    height:500px;
+    background:white;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.1);
+    display:flex;
+    overflow:hidden;
+}
+
+.left{
+    flex:1;
+    background:#2563eb;
+    color:white;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding:30px;
+    text-align:center;
+}
+
+.left h1{
+    font-size:40px;
+    margin-bottom:15px;
+}
+
+.left p{
+    font-size:18px;
+    line-height:1.6;
+}
+
+.right{
+    flex:1;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.register-box{
+    width:80%;
+}
+
+.register-box h2{
+    text-align:center;
+    color:#2563eb;
+    margin-bottom:25px;
+}
+
+.input-box{
+    width:100%;
+    padding:14px;
+    margin-bottom:15px;
+    border:1px solid #cbd5e1;
+    border-radius:8px;
+    outline:none;
+}
+
+.btn{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:8px;
+    background:#2563eb;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.btn:hover{
+    background:#1d4ed8;
+}
+
+.link{
+    text-align:center;
+    margin-top:15px;
+}
+
+.link a{
+    text-decoration:none;
+    color:#2563eb;
+    font-weight:bold;
+}
+
+@media (max-width:768px){
+
+body{
+    height:auto;
+    min-height:100vh;
+    padding:20px;
+}
+
+.container{
+    width:100%;
+    max-width:420px;
+    height:auto;
+    flex-direction:column;
+}
+
+.left{
+    padding:35px 20px;
+}
+
+.left h1{
+    font-size:32px;
+}
+
+.left p{
+    font-size:16px;
+}
+
+.right{
+    padding:25px 20px;
+}
+
+.register-box{
+    width:100%;
+}
+
+.input-box{
+    font-size:16px;
+}
+
+.btn{
+    font-size:16px;
+    padding:15px;
+}
+
+}
+.input-box:focus{
+    border-color:#2563eb;
+    box-shadow:0 0 8px rgba(37,99,235,0.25);
+}
+.btn{
+    transition:0.3s;
+}
+#message{
+    margin-top:15px;
+    text-align:center;
+    font-weight:bold;
+    font-size:16px;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="left">
+        <h1>AptiMaster</h1>
+        <p>
+            Join AptiMaster and start improving your Aptitude,
+            Reasoning and Technical Skills through quizzes and practice tests.
+        </p>
+    </div>
+
+    <div class="right">
+        <div class="register-box">
+
+            <h2>Create Account</h2>
+
+            <input type="text" id="fullName" placeholder="Enter Full Name" class="input-box">
+
+            <input type="email" id="email" placeholder="Enter Email" class="input-box">
+
+            <input type="password" id="password" placeholder="Create Password" class="input-box">
+
+            <input type="password" id="confirmPassword" placeholder="Confirm Password" class="input-box">
+
+            <button class="btn" id="registerBtn">Register</button>
+            <p id="message"></p>
+
+            <div class="link">
+                Already have an account?
+                <a href="login.html">Login</a>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<script src="register.js"></script>
+</body>
+</html>
