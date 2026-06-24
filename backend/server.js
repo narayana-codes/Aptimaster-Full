@@ -12,6 +12,9 @@ const {
     reasoningquestionsHard
 } = require("./questions");
 const app = express();
+require("dotenv").config();
+
+console.log("DATABASE_URL =", process.env.DATABASE_URL ? "FOUND" : "NOT FOUND");
 const pool = process.env.DATABASE_URL
   ? new Pool({
       connectionString: process.env.DATABASE_URL,
