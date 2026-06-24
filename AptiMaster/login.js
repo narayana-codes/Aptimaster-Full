@@ -37,7 +37,7 @@ if(response.ok){
     localStorage.setItem("user", JSON.stringify(data.user));
 
     setTimeout(() => {
-        window.location.href = "/category.html";
+        window.location.href = "category.html";
     },2000);
 
 }

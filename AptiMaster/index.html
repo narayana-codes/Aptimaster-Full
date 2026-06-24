@@ -15,8 +15,10 @@
 
 body{
     background:#f5f9ff;
-    height:100vh;
+    min-height:100vh;
     overflow-x:hidden;
+    display:flex;
+    flex-direction:column;
 }
 
 nav{
@@ -61,17 +63,16 @@ nav{
 }
 
 .hero{
-    height:calc(100vh - 80px);
+    flex:1;
     display:flex;
     align-items:center;
     justify-content:space-between;
     max-width:1400px;
     width:100%;
     margin:auto;
-    padding:0 60px;
-    gap:60px;
+    padding:20px 60px;
+    gap:40px;
 }
-
 .left{
     flex:1.2;
 }
@@ -122,7 +123,7 @@ nav{
 
 .right img{
     width:100%;
-    max-width:500px;
+    max-width:420px;
 }
 
 @media (max-width:768px){
@@ -161,7 +162,7 @@ nav{
 }
 
 .left h1{
-    font-size:28px;
+    font-size:44px;
 }
 
 .left p{
@@ -200,6 +201,28 @@ footer{
     font-size:14px;
     border-top:1px solid #ddd;
 }
+.footer{
+    background: #0f172a;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+}
+
+.footer p{
+    margin: 6px 0;
+    font-size: 15px;
+}
+
+.footer strong{
+    color: #3b82f6;
+}
+.developer{
+    text-align:center;
+    font-size:14px;
+    color:#666;
+    margin:5px 0 10px;
+}
 }
 </style>
 </head>
@@ -210,9 +233,7 @@ footer{
 <nav>
   <div class="logo-section">
     <div class="logo">🧠 AptiMaster</div>
-    <div class="developer">
-        Developed by Pasumarthi Lakshminarayana
-    </div>
+    
 </div>
 
     <div class="nav-buttons">
@@ -247,12 +268,15 @@ onclick="window.location.href='register.html'">
        <a href="login.html" class="start-btn"> Get Started</a>
 
     </div>
-
+  
     <div class="right">
         <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Quiz Image">
     </div>
 
 </section>
+<p class="developer">
+    Developed by Pasumarthi Lakshminarayana
+</p>
 
 </body>
 </html>

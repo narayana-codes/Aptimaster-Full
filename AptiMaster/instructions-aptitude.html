@@ -15,7 +15,7 @@
 
 body{
     background:#f5f9ff;
-    padding:30px;
+    padding:15px;
 }
 
 .container{
@@ -26,7 +26,7 @@ body{
 .header{
     background:#2563eb;
     color:white;
-    padding:20px 30px;
+    padding:15px 20px;
     border-radius:12px;
     margin-bottom:25px;
 }
@@ -133,6 +133,61 @@ body{
 .start-btn:hover{
     background:#1d4ed8;
 }
+@media (max-width:768px){
+
+body{
+    padding:15px;
+}
+
+.header{
+    padding:15px;
+}
+
+.header h1{
+    font-size:26px;
+    text-align:center;
+}
+
+.instructions{
+    padding:20px;
+}
+
+.instructions h2{
+    font-size:24px;
+}
+
+.instructions p{
+    font-size:15px;
+}
+
+.instructions li{
+    font-size:15px;
+    line-height:1.8;
+}
+
+.test-info{
+    display:block;
+    overflow-x:auto;
+}
+
+.buttons{
+    flex-direction:column;
+    gap:12px;
+}
+
+.back-btn,
+.start-btn{
+    width:100%;
+    font-size:16px;
+    padding:15px;
+}
+.warning-text{
+    color:#dc2626;
+    font-size:15px;
+    font-weight:600;
+    margin:20px 0;
+}
+}
 </style>
 </head>
 
@@ -169,9 +224,12 @@ body{
             </table>
 
             <ul>
+                <li class="warning">
+    ⚠️ Please use a desktop or laptop for a better quiz experience. Mobile view may not display properly.
+</li>
                 <li>The test contains 25 multiple choice questions.</li>
                 <li>Each question has 4 options and only one answer is correct.</li>
-                <li>You have to complete the test within 30 minutes.</li>
+                <li>You have to complete the test within 10 minutes.</li>
                 <li>Each correct answer carries 1 mark.</li>
                 <li>No negative marking in this test.</li>
                 <li>You can navigate between questions using Next and Previous buttons.</li>

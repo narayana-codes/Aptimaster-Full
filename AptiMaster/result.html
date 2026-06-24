@@ -47,8 +47,8 @@ body{
     background:#f0f7ff;
     border:2px solid #d7e8ff;
     border-radius:15px;
-    padding:25px;
-    margin-bottom:25px;
+    padding:20px;
+    margin-bottom:20px;
 }
 
 .score{
@@ -74,17 +74,17 @@ body{
     background:#f8fbff;
     border:1px solid #dcecff;
     border-radius:12px;
-    padding:12px;
+    padding:18px 10px;
 }
 
 .stat h3{
     color:#0d6efd;
     margin-bottom:6px;
-    font-size:14px;
+    font-size:15px;
 }
 
 .stat p{
-    font-size:18px;
+    font-size:24px;
     font-weight:bold;
     color:#333;
 }
@@ -96,10 +96,10 @@ body{
 }
 
 button{
-    padding:14px;
+    padding:16px;
     border:none;
-    border-radius:10px;
-    font-size:16px;
+    border-radius:12px;
+    font-size:17px;
     font-weight:bold;
     cursor:pointer;
     transition:0.3s;
@@ -136,12 +136,29 @@ button{
 
 @media(max-width:600px){
 
+.result-card{
+    padding:20px;
+}
+
 .stats{
-    grid-template-columns:1fr;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
 }
 
 .score{
-    font-size:34px;
+    font-size:36px;
+}
+
+.result-card h1{
+    font-size:30px;
+}
+
+.subtitle{
+    font-size:16px;
+}
+
+#attemptNo{
+    display:none;
 }
 
 }
@@ -163,7 +180,8 @@ button{
 
 #performance{
     color:#0d6efd;
-    margin-bottom:15px;
+    font-size:24px;
+    margin-bottom:10px;
 }
 #attemptNo{
     color:#0d6efd;
