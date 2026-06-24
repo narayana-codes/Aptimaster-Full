@@ -21,7 +21,8 @@ async function loadQuestionsFromBackend() {
     );
 
     questions = await response.json();
-
+console.log("Questions:", questions);
+console.log("Length:", questions.length);
     userAnswers = new Array(questions.length).fill(null);
 
     loadQuestion();

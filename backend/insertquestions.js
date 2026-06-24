@@ -12,7 +12,7 @@ const {
 require("dotenv").config();
 console.log(process.env.DATABASE_URL);
 const pool = new Pool({
-  connectionString: "PASTE_YOUR_NEON_CONNECTION_STRING_HERE",
+  connectionString: process.env.DATABASE_URL,
   ssl: {
     rejectUnauthorized: false,
   },
