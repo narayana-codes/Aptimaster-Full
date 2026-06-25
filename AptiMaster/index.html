@@ -17,8 +17,6 @@ body{
     background:#f5f9ff;
     min-height:100vh;
     overflow-x:hidden;
-    display:flex;
-    flex-direction:column;
 }
 
 nav{
@@ -63,25 +61,24 @@ nav{
 }
 
 .hero{
-    flex:1;
     display:flex;
     align-items:center;
     justify-content:space-between;
-    max-width:1400px;
+    max-width:1200px;
     width:100%;
-    margin:auto;
-    padding:20px 60px;
-    gap:40px;
+    margin:30px auto 0;
+    padding:20px 50px;
+    gap:30px;
 }
 .left{
     flex:1.2;
 }
 
 .left h1{
-    font-size:50px;
-    line-height:1.2;
+    font-size:48px;
+    line-height:1.15;
     color:#0f172a;
-    margin-bottom:20px;
+    margin-bottom:8px;
 }
 
 .left h1 span{
@@ -91,8 +88,8 @@ nav{
 .left p{
     font-size:18px;
     color:#475569;
-    line-height:1.7;
-    margin-bottom:20px;
+    line-height:1.6;
+    margin-bottom:8px;
 }
 
 .quote{
@@ -112,6 +109,7 @@ nav{
     text-decoration:none;
     border-radius:10px;
     font-weight:bold;
+    margin-bottom:0px;
 }
 
 .right{
@@ -123,7 +121,7 @@ nav{
 
 .right img{
     width:100%;
-    max-width:420px;
+    max-width:320px;
 }
 
 @media (max-width:768px){
@@ -187,10 +185,12 @@ nav{
     display:inline-block;
 }
 .hero{
-    height:auto;
+    min-height:unset;
     flex-direction:column-reverse;
     text-align:center;
-    padding:30px 20px;
+    padding:10px 20px;
+    gap:8px;
+    margin:0;
 }
 footer{
     width:100%;
@@ -221,7 +221,8 @@ footer{
     text-align:center;
     font-size:14px;
     color:#666;
-    margin:5px 0 10px;
+    margin:8px 0;
+    padding:0;
 }
 }
 </style>
@@ -261,9 +262,7 @@ onclick="window.location.href='register.html'">
             "Master aptitude and reasoning today to unlock greater opportunities tomorrow."
         </p>
 
-        <div class="quote">
-            “Success is where preparation and opportunity meet.”
-        </div>
+       
 
        <a href="login.html" class="start-btn"> Get Started</a>
 
