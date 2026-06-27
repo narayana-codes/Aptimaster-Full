@@ -1,4 +1,20 @@
 require("dotenv").config();
+const nodemailer = require("nodemailer");
+const transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS
+    }
+});
+transporter.verify(function (error, success) {
+    if (error) {
+        console.log("Mailer Error:", error);
+    } else {
+        console.log("✅ Mail Server Ready");
+    }
+});
+
 const express = require("express");
 const cors = require("cors");
 const { Pool } = require("pg");
@@ -12,7 +28,7 @@ const {
     reasoningquestionsHard
 } = require("./questions");
 const app = express();
-require("dotenv").config();
+
 
 console.log("DATABASE_URL =", process.env.DATABASE_URL ? "FOUND" : "NOT FOUND");
 const pool = process.env.DATABASE_URL
@@ -224,3 +240,138 @@ if (!process.env.VERCEL) {
 }
 
 module.exports = app;
+app.post("/forgot-password", async (req, res) => {
+    try {
+        const { email } = req.body;
+
+        const result = await pool.query(
+            "SELECT * FROM users WHERE email = $1",
+            [email]
+        );
+
+        if (result.rows.length === 0) {
+            return res.status(404).json({
+                success: false,
+                message: "Email not found"
+            });
+        }
+
+        // Generate OTP
+        const otp = Math.floor(100000 + Math.random() * 900000).toString();
+
+        // OTP valid for 5 minutes
+        const expiry = new Date(Date.now() + 5 * 60 * 1000);
+
+        // Save OTP
+        await pool.query(
+            "UPDATE users SET otp = $1, otp_expiry = $2 WHERE email = $3",
+            [otp, expiry, email]
+        );
+
+        console.log("OTP:", otp);
+
+        res.json({
+            success: true,
+            message: "OTP Generated Successfully"
+        });
+        await transporter.sendMail({
+    from: process.env.EMAIL_USER,
+    to: email,
+    subject: "AptiMaster Password Reset OTP",
+    html: `
+        <h2>AptiMaster</h2>
+        <p>Your OTP is:</p>
+        <h1>${otp}</h1>
+        <p>This OTP is valid for 5 minutes.</p>
+    `
+});
+
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({
+            success: false,
+            message: "Server Error"
+        });
+    }
+});
+app.post("/verify-otp", async (req, res) => {
+    try {
+        const { email, otp } = req.body;
+
+        const result = await pool.query(
+            "SELECT otp, otp_expiry FROM users WHERE email = $1",
+            [email]
+        );
+
+        if (result.rows.length === 0) {
+            return res.json({
+                success: false,
+                message: "User not found"
+            });
+        }
+
+        const user = result.rows[0];
+
+        // OTP check
+        if (user.otp !== otp) {
+            return res.json({
+                success: false,
+                message: "Invalid OTP"
+            });
+        }
+
+        // Expiry check
+        if (new Date() > new Date(user.otp_expiry)) {
+            return res.json({
+                success: false,
+                message: "OTP Expired"
+            });
+        }
+
+        res.json({
+            success: true,
+            message: "OTP Verified Successfully"
+        });
+
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({
+            success: false,
+            message: "Server Error"
+        });
+    }
+});
+app.post("/reset-password", async (req, res) => {
+    try {
+
+        const { email, password } = req.body;
+
+        // Hash new password
+        const hashedPassword = await bcrypt.hash(password, 10);
+
+        // Update password & clear OTP
+        await pool.query(
+            `UPDATE users
+             SET password = $1,
+                 otp = NULL,
+                 otp_expiry = NULL
+             WHERE email = $2`,
+            [hashedPassword, email]
+        );
+
+        res.json({
+            success: true,
+            message: "Password Updated Successfully"
+        });
+
+    } catch (err) {
+
+        console.error(err);
+
+        res.status(500).json({
+            success: false,
+            message: "Server Error"
+        });
+
+    }
+});
