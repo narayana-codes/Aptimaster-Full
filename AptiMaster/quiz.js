@@ -17,9 +17,8 @@ let questions = [];
 async function loadQuestionsFromBackend() {
 
     const response = await fetch(
-        `https://aptimaster-full-e9fy.vercel.app/questions?category=${category}&level=${selectedLevel}`
-    );
-
+    `http://localhost:5000/questions?category=${category}&level=${selectedLevel}`
+);
     questions = await response.json();
 console.log("Questions:", questions);
 console.log("Length:", questions.length);

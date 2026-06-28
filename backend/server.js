@@ -64,24 +64,27 @@ app.get("/questions", async (req, res) => {
         const { category, level } = req.query;
 
         const result = await pool.query(
-            `SELECT * FROM questions
-             WHERE category = $1 AND level = $2
-             ORDER BY id`,
+            `SELECT *
+             FROM questions
+             WHERE category = $1
+             AND level = $2
+             ORDER BY RANDOM()
+             LIMIT 25`,
             [category, level]
         );
 
-       const questions = result.rows.map(q => ({
-    question: q.question,
-    options: [
-        q.option1,
-        q.option2,
-        q.option3,
-        q.option4
-    ],
-    answer: q.correct_answer,
-    explanation: q.explanation,
-    level: q.level
-}));
+        const questions = result.rows.map(q => ({
+            question: q.question,
+            options: [
+                q.option1,
+                q.option2,
+                q.option3,
+                q.option4
+            ],
+            answer: q.correct_answer,
+            explanation: q.explanation,
+            level: q.level
+        }));
 
         res.json(questions);
 
@@ -90,6 +93,9 @@ app.get("/questions", async (req, res) => {
         res.status(500).json({ error: "Database Error" });
     }
 });
+      
+
+ 
 app.post("/submit", async (req, res) => {
     try {
         console.log("Submit API called");
