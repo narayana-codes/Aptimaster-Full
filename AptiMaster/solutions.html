@@ -70,6 +70,15 @@ h1{
     color:#333;
     line-height:1.7;
 }
+.correct{
+    color:green;
+    font-weight:bold;
+}
+
+.user{
+    color:red;
+    margin-bottom:8px;
+}
 
 </style>
 </head>
@@ -85,23 +94,20 @@ Back To Result
 </button>
 
 <script>
-
-const questions =
+    const questions =
 JSON.parse(localStorage.getItem("questions")) || [];
 
 const userAnswers =
 JSON.parse(localStorage.getItem("userAnswers")) || [];
 
-console.log(questions);
-console.log(userAnswers);
-
 const container =
 document.getElementById("solutionsContainer");
+
 if (questions.length === 0) {
     container.innerHTML = "<h2>No solutions found</h2>";
 }
 
-questions.forEach((q,index)=>{
+questions.forEach((q, index) => {
 
     let userAnswer =
     userAnswers[index] !== null
@@ -111,35 +117,40 @@ questions.forEach((q,index)=>{
     let correctAnswer =
     q.options[q.answer];
 
-    container.innerHTML += `
+    let isCorrect =
+    String(userAnswer).trim().toLowerCase() ===
+    String(correctAnswer).trim().toLowerCase();
 
-    <div class="solution-card">
+  container.innerHTML += `
+<div class="solution-card">
 
-        <div class="question">
-            Q${index+1}. ${q.question}
-        </div>
-
-        <div class="user">
-            ❌ Your Answer:
-            ${userAnswer}
-        </div>
-
-        <div class="correct">
-            ✅ Correct Answer:
-            ${correctAnswer}
-        </div>
-        <div class="explanation">
-    💡 <b>Explanation:</b><br>
-    ${q.explanation}
-</div>
-
+    <div class="question">
+        Q${index+1}. ${q.question}
     </div>
 
-    `;
+   ${isCorrect ? `
+<div class="correct">
+    ✅ Your Answer: ${userAnswer}
+</div>
+` : `
+<div class="user">
+    ❌ Your Answer: ${userAnswer}
+</div>
 
+<div class="correct">
+    ✅ Correct Answer: ${correctAnswer}
+</div>
+`}
+    
+    
+
+    <div class="explanation">
+        💡 <b>Explanation:</b><br>
+        ${q.explanation}
+    </div>
+
+</div>
+`;
 });
 
 </script>
-
-</body>
-</html>
